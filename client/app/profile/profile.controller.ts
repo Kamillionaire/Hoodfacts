@@ -9,9 +9,7 @@ class ProfileController {
     private $state: ng.ui.IStateService,
     private toastr,
     SessionService,
-    $stateParams,
-    private $uibModal,
-    private $uibModalStack
+    $stateParams
   ) {
     if (!$stateParams['username'] || $stateParams['username'] === '') {
       this.profileID = SessionService.getUser().username;
@@ -20,10 +18,6 @@ class ProfileController {
     }
     this.getProfile();
   }
-  public closeModal() {
-    this.$uibModal.dismissAll(true);
-  }
-
 
   public getProfile() {
     // api call to profiles
@@ -40,8 +34,7 @@ ProfileController.$inject = [
   '$state',
   'toastr',
   'SessionService',
-  '$stateParams',
-  '$uibModalStack'
+  '$stateParams'
 ];
 
 export default ProfileController;

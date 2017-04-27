@@ -8,29 +8,21 @@ class SplashPageController implements ng.IController {
     private UserService,
     private $state: ng.ui.IStateService,
     private toastr,
-    private $localStorage,
-    private $uibModal
+    private $localStorage
   ) {
     console.log ('You are on the Splash Page')
     this.$onInit = function() {
       this.user = SessionService.getUser();
     };
   }
-
-public openAuth() {
-  this.$uibModal.open({
-    component: 'auth',
-    size: 'lg'
-  });
-};
 }
+
 SplashPageController.$inject = [
   'SessionService',
   'UserService',
   '$state',
   'toastr',
-  '$localStorage',
-  '$uibModal'
+  '$localStorage'
 ];
 
 export default SplashPageController;

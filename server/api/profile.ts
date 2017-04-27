@@ -15,14 +15,4 @@ router.get('/profile/:username', (req, res, next) => {
     next({message: 'could not find profile', error: e});
   });
 });
-
-router.get('/profile/:contribution', (req, res, next) => {
-  Profile.findOne({
-    contribution: req.params.contribution
-  }).then((profile) => {
-     return res.json(profile);
-  }).catch ((e) => {
-    next({message: 'could not find profile', error: e});
-  });
-});
 export = router;
